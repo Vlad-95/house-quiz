@@ -327,6 +327,31 @@ textarea {
       display: none; }
       .quiz__form-step--active {
         display: block; }
+      .quiz__form-step-descr {
+        font-size: 19px;
+        line-height: 1.45;
+        color: #373737;
+        padding-left: 25px;
+        position: relative;
+        padding-bottom: 20px;
+        margin-bottom: 25px; }
+        .quiz__form-step-descr:after {
+          content: '';
+          position: absolute;
+          left: -40px;
+          bottom: 0;
+          width: calc(100% + 80px);
+          height: 2px;
+          background-color: #E9E9E9; }
+        .quiz__form-step-descr:before {
+          position: absolute;
+          content: "";
+          width: 15px;
+          height: 15px;
+          background-image: url(../img/icons/quiz-header.svg);
+          top: 5px;
+          left: 0;
+          margin: auto; }
       .quiz__form-step-title {
         font-size: 22px;
         line-height: 145%;
@@ -710,6 +735,11 @@ textarea {
 @media screen and (max-width: 576px) {
   .quiz__form {
     padding: 15px 0 30px; }
+    .quiz__form-step-descr {
+      font-size: 16px; }
+      .quiz__form-step-descr:after {
+        left: 0;
+        width: 100%; }
     .quiz__form-progress {
       margin-bottom: 25px; }
     .quiz__form-feedback .wysiwyg p {
@@ -729,7 +759,7 @@ textarea {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    padding: 25px 35px 35px;
+    padding: 25px 0 35px;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
     .quiz__footer-progress {

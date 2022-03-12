@@ -44,6 +44,37 @@
                 display: block;
             }
 
+            &-descr {
+                font-size: 19px;
+                line-height: 1.45;
+                color: $text;
+                padding-left: 25px;
+                position: relative;
+                padding-bottom: 20px;
+                margin-bottom: 25px;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: -40px;
+                    bottom: 0;
+                    width: calc(100% + 80px);
+                    height: 2px;
+                    background-color: #E9E9E9;
+                }
+
+                &:before {
+                    position: absolute;
+                    content: "";
+                    width: 15px;
+                    height: 15px;
+                    background-image: url(../img/icons/quiz-header.svg);
+                    top: 5px;
+                    left: 0;
+                    margin: auto;
+                }
+            }
+
             &-title {
                 font-size: 22px;
                 line-height: 145%;
@@ -527,6 +558,17 @@
         &__form {
             padding: 15px 0 30px;
 
+            &-step {
+                &-descr {
+                    font-size: 16px;
+                    
+                    &:after {
+                        left: 0;
+                        width: 100%;
+                    }
+                }
+            }
+
             &-progress {
                 margin-bottom: 25px;
             }
@@ -559,7 +601,7 @@
         &__footer {
             display: flex;
             justify-content: center;
-            padding: 25px 35px 35px;
+            padding: 25px 0 35px;
             flex-wrap: wrap;
 
             &-progress {
