@@ -1,31 +1,21 @@
 .quiz {
-    background-color: #FAFAFA;
+    background-color: $bgGray;
     display: flex;
     align-items: center;
-    min-height: 100vh;
+    min-height: calc(100vh - 153px);
     overflow: auto;
-    padding: 100px 0;
+    padding: 30px 0;
     flex-wrap: wrap;
 
-    &__wrap {
-        width: 1270px;
-        display: flex;
-        margin: 0 auto;
+    &__wrap {        
         background: #FFFFFF;
         box-shadow: 0px 10px 30px rgba(104, 104, 104, 0.3);
         border-radius: 10px;
+        width: 100%;
 
         &.last-steps {
             .quiz__content {
                 max-width: none;
-            }
-
-            .quiz__sidebar {
-                display: none; 
-            }
-
-            .quiz__header {
-                display: none; 
             }
 
             .quiz__footer {
@@ -43,86 +33,6 @@
         max-width: 100%;
     }
 
-    &__sidebar {
-        width: 100%;
-        max-width: 330px;
-        display: none;
-        background-color: rgba(238, 238, 238, 0.3);
-        padding: 35px 30px; 
-    }
-
-    &__logo {
-        display: none;
-
-        svg {
-            width: 106px;
-            height: 25px;
-            fill: #ffffff;
-        }
-    }
-
-    &__help {
-        display: flex;
-        background: none;
-        align-items: center;
-        border: none;
-        padding: 0;
-
-        &-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-        }
-
-        &-text {
-            p {
-                font-size: 18px;
-                line-height: 20px;
-                color: #373737;
-                text-align: left;
-
-                strong {
-                    font-size: 19px;
-                    line-height: 22px;
-                    margin-bottom: 10px;
-                }
-            }
-        }
-
-        &-number {
-            font-size: 17px;
-            line-height: 20px;
-            color: #373737;
-            margin-top: 10px;
-            display: none;
-        }
-    }
-
-    &__header {
-        padding: 40px 40px 12px;
-        border-bottom: 2px solid #E9E9E9;
-
-        &-text {
-            font-size: 19px;
-            line-height: 145%;
-            color: #373737;
-            padding-left: 25px;
-            position: relative;
-
-            &:before {
-                position: absolute;
-                content: "";
-                width: 15px;
-                height: 15px;
-                background-image: url(../img/icons/quiz-header.svg);
-                top: 0;
-                bottom: 0;
-                left: 0;
-                margin: auto;
-            }
-        }
-    }
-
     //ФОРМА
     &__form {
         padding: 25px 40px 30px;
@@ -137,14 +47,14 @@
             &-title {
                 font-size: 22px;
                 line-height: 145%;
-                color: #373737;
+                color: $text;
                 font-weight: 400;
                 margin-bottom: 10px;
             }
 
             &-attention {
-                background: #fff;
-                border: 1px solid #09AD9A;
+                background: $white;
+                border: 1px solid $green;
                 border-radius: 5px;
                 display: inline-block;
                 padding: 6px 10px 6px 38px;
@@ -174,11 +84,6 @@
                 &-col {
                     width: 50%;
                     margin: 0 15px;
-
-                    &--map {
-                        height: 330px;
-                        padding-right: 10px !important; 
-                    }
                 }
             }
         }
@@ -189,27 +94,27 @@
             &-text {
                 font-weight: 500;
                 font-size: 23px;
-                line-height: 145%;
-                color: #09AD9A;
+                line-height: 1.45;
+                color: $green;
             }
 
             &-bar {
                 display: flex;
 
                 &-bar-item {
-                    background-color: #09AD9A;
+                    background-color: $green;
                     width: 13.5px;
                     height: 15px;
                     margin-right: 6px;
 
-                    &:nth-last-of-type(1) {
+                    &:last-of-type() {
                         margin-right: 0;
                         width: 16.5px;
                         border-top-right-radius: 50px;
                         border-bottom-right-radius: 50px;
                     }
 
-                    &:nth-of-type(1) {
+                    &:first-of-type() {
                         width: 16.5px;
                         border-top-left-radius: 50px;
                         border-bottom-left-radius: 50px;
@@ -218,73 +123,49 @@
             }
         }
 
-        &-row {
+        &-feedback {
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            &-block {
-                &:nth-of-type(2) {
-                    max-width: 40%;
-                    text-align: right;
+            .wysiwyg {
+                p {
+                    font-size: 19px;
+                    line-height: 1.45;
+                    color: $text;
                 }
             }
 
-            &-text {
-                font-size: 19px;
-                line-height: 145%;
-                color: #373737;
+            &-block {
+                max-width: 40%;
+                text-align: center;
             }
 
             &-btn {
                 font-size: 17px;
                 line-height: 50px;
                 text-align: center;
-                width: 295px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 260px;
                 height: 50px;
-                color: #ffffff;
-                background: #09AD9A;
+                color: $white;
+                background: $green;
+                border: 2px solid $green;
                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                 border-radius: 15px;
                 border: none;
                 cursor: pointer;
                 transition: 0.2s; 
+                margin: 20px auto 0;
+
+                svg {
+                    margin-right: 10px;
+                }
 
                 &:active {
-                    background-color: #09AD9A;
-                }
-
-                &--email {
-                    width: 305px;
-                    background: none;
-                    border: 2px solid #09AD9A;
-                    color: #373737;
-                    line-height: 44px;
-                    display: flex;
-                    align-items: center;
-                    margin: 15px 0 15px auto;
-                    text-align: left;
-                    padding-left: 30px;
-
-                    svg {
-                        margin-right: 20px;
-                    }
-                }
-
-                &--whatsapp {
-                    width: 305px;
-                    line-height: 44px;
-                    border: 2px solid #09AD9A;
-                    display: flex;
-                    align-items: center;
-                    margin: 0 0 0 auto;
-                    height: 54px;
-                    text-align: left;
-                    padding-left: 30px;
-
-                    svg {
-                        margin-right: 20px;
-                    }
+                    background-color: $green;
                 }
             }
         }
@@ -300,14 +181,15 @@
         }
 
         &-input {
-            background: #FFFFFF;
-            border: 2px solid #EDEDED;
-            border-radius: 30px;
-            padding: 14px 50px;
+            background: $white;
+            border: none;
+            border-bottom: 2px solid $green;
+            border-radius: 0;
+            padding: 14px 0;
             font-size: 19px;
-            line-height: 145%;
-            color: #373737;
-            width: 390px;
+            line-height: 1.45;
+            color: $text;
+            width: 260px;
 
             &::placeholder {
                 color: #B6B6B6;
@@ -328,10 +210,10 @@
             margin: 10px 0 0 20px;
 
             &:checked + .quiz__form-checkbox-text {
-                border-color: #09AD9A; 
+                border-color: $green; 
 
                 &:before {
-                    border-color: #09AD9A;
+                    border-color: $green;
                 }
 
                 &:after {
@@ -351,11 +233,11 @@
                 transition: 0.2s;
                 font-size: 19px;
                 line-height: 1;
-                color: #373737;
+                color: $text;
 
                 &:hover {
                     box-shadow: 0px 0px 15px rgba(11, 79, 127, 0.3);
-                    border-color: #09AD9A;
+                    border-color: $green;
 
                     &:after {
                         opacity: 1;
@@ -392,9 +274,7 @@
                 }
             }
         }
-    }
-
-    
+    }    
 
     &__footer {
         display: flex;
@@ -407,7 +287,7 @@
             &-text {
                 font-size: 15px;
                 line-height: 140%;
-                color: #373737;
+                color: $text;
                 font-weight: 400;
                 margin-bottom: 9px;
 
@@ -429,7 +309,7 @@
                     margin-right: 6px;
 
                     &.active {
-                        background-color: #09AD9A;
+                        background-color: $green;
                     }
 
                     &:nth-last-of-type(1) {
@@ -477,8 +357,8 @@
         &-next {
             font-size: 17px;
             line-height: 145%;
-            color: #ffffff;
-            background: #09AD9A;
+            color: $white;
+            background: $green;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-radius: 15px;
             border: none;
@@ -491,112 +371,20 @@
             }
         }
     }
-
-    &__bottom {
-        display: none;
-        width: 100%;
-        max-width: 1500px;
-        margin: 0 auto;
-        padding: 100px 15px 0;
-
-        &.active {
-            display: block;
-        }
-
-        &-text {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 30px;
-        }
-
-        &-logo {
-            text-align: center;
-            display: block;
-            font-size: 19px;
-            line-height: 145%;
-            margin: 0 auto 52px;
-            max-width: 282px;
-
-            svg {
-                display: block;
-                margin: 0 auto 20px;
-                width: 230px;
-                height: 54px;
-                fill: #1E90FF;
-            }
-        }
-
-        &-row {
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            margin: 0 -15px;
-
-            &-item {
-                width: calc((100% / 3) - 30px);
-                padding: 30px;
-                margin: 0 15px 30px;
-                display: flex;
-                align-items: center;
-                margin-bottom: 40px;
-                position: relative;
-                box-shadow: 0px 2px 19px rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
-                background-color: #ffffff;
-
-                p {
-                    font-size: 19px;
-                    line-height: 145%;
-                }
-
-                &-icon {
-                    background-color: #ffffff;
-                    display: flex;
-                    border-radius: 100px;
-                    border: 1px solid #09AD9A;
-                    width: 70px;
-                    min-width: 70px;
-                    height: 70px;
-                    align-items: center;
-                    justify-content: center;
-                    margin-right: 30px;
-
-                    p {
-                        font-size: 80px;
-                        line-height: 145%;
-                        color: #1E90FF;
-                        font-weight: 700;
-                    }
-                }
-
-                &-label {
-                    position: absolute;
-                    right: -10px;
-                    top: -20px;
-                    font-size: 19px;
-                    line-height: 20px;
-                    font-weight: 700;
-                    background: linear-gradient(270deg, rgba(11, 79, 127, 0.3) 0%, #09AD9A 100%);
-                    box-shadow: 2px 2px 4px rgba(114, 142, 171, 0.1);
-                    border-radius: 35px;
-                    color: #ffffff;
-                    padding: 10px 25px;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1270px) {
-    .quiz {
-        &__form {
-            border-radius: 0;
-        }
-    }
 }
 
 @media screen and (max-width: 1200px) {
     .quiz {
+        background-color: $white;
+
+        &__wrap {
+            &.last-steps {
+                .quiz__form {
+                    padding: 55px 80px;
+                }
+            }
+        }
+
         &__form {
             &-step {
                 &-content {
@@ -607,25 +395,8 @@
                         width: 100%;
                         margin: 0 0 15px;
 
-                        &:nth-last-of-type(1) {
+                        &:last-of-type() {
                             margin-bottom: 0;
-                        }
-
-                        &--map {
-                            width: 100%;
-                            height: auto;
-                            max-width: 395px;
-                            order: 2;
-                            padding-right: 0 !important;
-                            margin-top: 30px;
-
-                            &-image {
-                                order: 1;
-
-                                img {
-                                    width: 100%;
-                                }
-                            }
                         }
                     }
                 }
@@ -633,26 +404,6 @@
 
             &-label {
                 margin-bottom: 15px;
-            }
-        }
-
-        &__bottom {
-            &-row {
-                justify-content: flex-start;
-
-                &-item {
-                    width: calc((100% / 2) - 30px);
-
-                    p {
-                        font-size: 16px;
-                    }
-
-                    &-icon {
-                        p {
-                            font-size: 80px;
-                        }
-                    }
-                }
             }
         }
     }
@@ -670,11 +421,7 @@
 
             &.last-steps {
                 .quiz__form {
-                    padding: 35px 15px;
-                }
-
-                .quiz__sidebar {
-                    display: flex;
+                    padding: 35px 0;
                 }
             }
         }
@@ -685,49 +432,25 @@
             order: 2;
         }
 
-        &__sidebar {
-            order: 1;
-            width: 100%;
-            max-width: none;
-            background-color: #09AD9A;
-            padding: 18px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        &__logo {
-            display: block;
-        }
-
-        &__help {
-            &-icon {
-                margin-right: 20px;
-            }
-
-            &-text {
-                p {
-                    font-size: 18px;
-                    line-height: 100%;
-                    font-weight: 400;
-                    color: #ffffff;
-                    text-align: left;
-                }
-            }
-
-            &-number {
-                display: none !important;
-            }
-        }
-
-        &__header {
-            display: none;
-        }
-
         &__form {
-            &-row {
+            &-feedback {
+                flex-direction: column;
+                justify-content: flex-start;
+
+                .wysiwyg {
+                    text-align: center;
+                    margin-bottom: 40px;
+
+                    p {
+                        &:first-of-type {
+                            margin-bottom: 40px;
+                        }
+                    }
+                }
+                
                 &-block {
                     width: 100%;
+                    max-width: none;
 
                     .quiz__form-label {
                         margin: 0 auto 15px;
@@ -740,45 +463,7 @@
                     .quiz__form-agree {
                         margin: 20px auto;
                     }
-
-                    &:nth-of-type(2) {
-                        max-width: 415px;
-                        margin-top: 0;
-                        text-align: left;
-
-                        .quiz__form-row-text {
-                            text-align: left;
-                        }
-                    }
                 }
-
-                &-btn {
-                    &.js-next {
-                        margin-top: 35px;
-                        margin-bottom: 35px;
-                    }
-
-                    &--email {
-                        margin: 15px auto;
-                        padding-left: 30px;
-                    }
-
-                    &--whatsapp {
-                        margin: 0 auto;
-                        padding-left: 30px;
-                    }
-                }
-            }
-
-            &-input {
-                background: #FFFFFF;
-                border: none;
-                border-bottom: 1px solid #979797;
-                border-radius: 0;
-                padding: 14px 0;
-                font-size: 16px;
-                width: 100%;
-                max-width: 390px;
             }
 
             &-progress {
@@ -795,7 +480,7 @@
                 }
             }
 
-            &-row {
+            &-feedback {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -806,19 +491,6 @@
                     text-align: center;
                     margin: 0 0 0;
                 }
-            }
-        }
-
-        &__bottom {
-            padding: 0 15px 15px;
-            background-color: #ffffff;
-
-            &-text {
-                font-size: 18px;
-            }
-
-            &-logo {
-                margin: 0 auto 45px;
             }
         }
     }
@@ -832,7 +504,7 @@
 
             &.last-steps {
                 .quiz__form {
-                    padding: 20px 35px;
+                    padding: 20px 0;
                 }
             }
         }
@@ -841,47 +513,8 @@
             &-step {
                 &-title {
                     font-size: 18px;
-                    line-height: 145%;
+                    line-height: 1.45;
                     margin-bottom: 27px;
-                }
-            }
-        }
-
-        &__bottom {
-            &-row {
-                margin: 0 -10px;
-
-                &-item {
-                    width: calc((100% / 2) - 30px);
-                    margin: 0 15px 30px;
-                    box-shadow: 0px 2px 19px rgba(0, 0, 0, 0.1);
-                    border-radius: 10px;
-                    padding: 20px 15px 25px;
-
-                    p {
-                        font-size: 13px;
-                    }
-
-                    &-icon {
-                        margin: 0 15px 0 0;
-                        position: relative;
-                        width: 45px;
-                        height: 45px;
-                        min-width: 45px;
-
-                        p {
-                            font-size: 70px;
-                            position: absolute;
-                            left: -35px;
-                        }
-                    }
-
-                    &-label {
-                        font-size: 12px;
-                        line-height: 20px;
-                        padding: 2px 20px;
-                        top: -15px;
-                    }
                 }
             }
         }
@@ -890,95 +523,18 @@
 
 @media screen and (max-width: 576px) {
     .quiz {
-        &__wrap {
-            &.last-steps {
-                .quiz__form {
-                    padding: 20px 35px;
-                }
-            }
-        }
-
-        &__sidebar {
-            padding: 18px 35px 18px 35px;
-        }
-
-        &__help {
-            &-text {
-                p {
-                    font-size: 13px;
-                }
-            }
-        }
 
         &__form {
-            padding: 15px 35px 30px;
+            padding: 15px 0 30px;
 
             &-progress {
                 margin-bottom: 25px;
             }
 
-            &-row {
-                &-block {
-                    .quiz__form-row-text {
+            &-feedback {
+                .wysiwyg {
+                    p {
                         font-size: 16px;
-                    }
-                }
-
-                &-text {
-                    font-size: 18px;
-                }
-
-                &-btn {
-                    width: 250px;
-                    font-size:15px;
-
-                    &--email {
-                        width: 250px;
-                        padding-left: 15px;
-                        font-size: 15px;
-
-                        svg {
-                            margin-right: 15px;
-                        }
-                    }
-
-                    &--whatsapp {
-                        width: 250px;
-                        font-size: 15px;
-                        padding-left: 50px;
-                        position: relative;
-
-                        svg {
-                            position: absolute;
-                            left: 15px;
-                            top: 0;
-                            bottom: 0;
-                            margin: auto;
-                        }
-                    }
-                }
-            }
-
-            &-step {
-                &-content {
-                    &-col {
-                        &--map {
-                            width: 100%;
-                            height: auto;
-                            max-width: none;
-                            order: 2;
-                            padding-right: 0 !important;
-                            margin-top: 30px;
-
-                            &-image {
-                                order: 1;
-
-                                img {
-                                    width: 100%;
-                                    max-width: 415px;
-                                }
-                            }
-                        }
                     }
                 }
             }
@@ -1051,7 +607,7 @@
             &-next {
                 font-size: 17px;
                 line-height: 145%;
-                color: #ffffff;
+                color: $white;
                 margin-left: auto;
                 border-radius: 15px;
                 border: none;
@@ -1061,36 +617,6 @@
 
                 svg {
                     margin-left: 11px;
-                }
-            }
-        }
-
-        &__bottom {
-            &-logo {
-                margin: 0 auto 45px;
-
-                svg {
-                    width: 152px;
-                    height: 36px;
-                }
-            }
-
-            &-row {
-                &-item {
-                    width: 100%;
-
-                    p {
-                        font-size: 12px;
-                        line-height: 14px;
-                    }
-
-                    &-icon {
-                        p {
-                            font-size: 70px;
-                            position: absolute;
-                            left: -35px;
-                        }
-                    }
                 }
             }
         }
