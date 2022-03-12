@@ -498,7 +498,7 @@ textarea {
       .quiz__form-checkbox:checked + .quiz__form-checkbox-text {
         border-color: #09AD9A; }
         .quiz__form-checkbox:checked + .quiz__form-checkbox-text:before {
-          border-color: #09AD9A; }
+          background-color: #09AD9A; }
         .quiz__form-checkbox:checked + .quiz__form-checkbox-text:after {
           opacity: 1; }
       .quiz__form-checkbox-text {

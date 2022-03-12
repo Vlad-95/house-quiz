@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    $('#client_phone').inputmask('9 (999) 999-99-99');
+    if($('#client_phone').length) {
+        $('#client_phone').inputmask('9 (999) 999-99-99');
+    }
 
     $('#support_href').click(function(e) {
         ym(56070517, 'reachGoal', 'open_phone');
